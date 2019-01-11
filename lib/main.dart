@@ -49,40 +49,134 @@ class _MainContentsState extends State<MainContents> {
         title: Text(MyApp.APP_TITLE),
       ),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: nameEditingController,
-                decoration: InputDecoration(
-                  hintText: 'Arrr! Write yer name!',
-                  border: OutlineInputBorder(),
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: TextFormField(
+              controller: nameEditingController,
+              decoration: InputDecoration(
+                hintText: 'Arrr! Write yer name!',
+                border: OutlineInputBorder(),
+              ),
+              maxLength: 16,
+              maxLines: 1,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 4.0),
+            child: RaisedButton(
+              onPressed: _updateBadge,
+              child: Text(
+                'Aye! Gimme a name!',
+                style: TextStyle(
+                  fontSize: 24.0,
                 ),
-                maxLength: 16,
-                maxLines: 1,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 4.0),
-              child: RaisedButton(
-                onPressed: _updateBadge,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                border: Border.all(
+                  color: Colors.red,
+                  width: 12.0,
+                ),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(0.0),
+                  bottomLeft: Radius.circular(0.0),
+                ),
+              ),
+              child: Center(
                 child: Text(
-                  'Aye! Gimme a name!',
+                  'Arrr! Me name is',
                   style: TextStyle(
-                    fontSize: 24.0,
+                    fontSize: 20.0,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
-            Center(
-              child: Text('Arrr! Me name is'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+            child: Container(
+              decoration: BoxDecoration(
+                border: BorderDirectional(
+                  start: BorderSide(
+                    color: Colors.red,
+                    width: 12.0,
+                  ),
+                  end: BorderSide(
+                    color: Colors.red,
+                    width: 12.0,
+                  ),
+                  top: BorderSide(
+                    color: Colors.red,
+                    width: 0.0,
+                  ),
+                  bottom: BorderSide(
+                    color: Colors.red,
+                    width: 0.0,
+                  ),
+                ),
+              ),
+              child: SizedBox(
+                height: 96.0,
+                child: Align(
+                  alignment: Alignment(0.0, 0.0),
+                  child: Center(
+                    child: Text(
+                      _piratesName,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            Center(
-              child: Text(_piratesName),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                border: Border(
+                  top: BorderSide(
+                    width: 0.0,
+                    color: Colors.red,
+                  ),
+                  left: BorderSide(
+                    width: 12.0,
+                    color: Colors.red,
+                  ),
+                  right: BorderSide(
+                    width: 12.0,
+                    color: Colors.red,
+                  ),
+                  bottom: BorderSide(
+                    width: 12.0,
+                    color: Colors.red,
+                  ),
+                ),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(0.0),
+                  topLeft: Radius.circular(0.0),
+                  bottomRight: Radius.circular(12.0),
+                  bottomLeft: Radius.circular(12.0),
+                ),
+              ),
             ),
-          ]),
+          ),
+        ],
+      ),
     );
   }
 
